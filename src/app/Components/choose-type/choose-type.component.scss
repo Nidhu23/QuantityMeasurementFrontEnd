@@ -1,0 +1,45 @@
+.container {
+  padding-top: 4em;
+}
+
+.item {
+  border: 1px solid lavenderblush;
+  border-radius: 8px;
+  width: 120px;
+  height: 120px;
+  background: white;
+}
+
+.length:hover {
+  border: 1px solid rgb(62, 240, 121);
+  background-color: rgb(247, 255, 249);
+  img {
+    content: url("../../../assets/images/scale.svg");
+  }
+  .text {
+    color: rgb(62, 240, 121);
+  }
+}
+
+
+.temp:hover{
+  border: 1px solid red;
+  background-color: rgb(243, 227, 227);
+  img{
+    content: url("../../../assets/images/hot.svg");
+  }
+  .text{
+    color: red;
+  }
+}
+
+.volume:hover{
+  border:1px solid purple;
+  background-color: rgb(226, 202, 226);
+  img{
+    content: url("../../../assets/images/beaker.svg");
+  }
+  .text{
+    color: purple;
+  }
+}
