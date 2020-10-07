@@ -1,0 +1,37 @@
+<app-choose-type (msgEvent)="getMsgFromChild($event)"></app-choose-type>
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="230px">
+    <div fxLayout="column">
+      From
+    </div>
+    <div fxLayout="column">
+      To
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="52px">
+    <div fxLayout="column" class="item">
+      1
+    </div>
+    <div fxLayout="column" class="item">
+      1000
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="52px">
+    <mat-form-field class="optionbox">
+      <mat-select>
+        <mat-option></mat-option>
+        <mat-option [value]="option.value" *ngFor="let option of subUnits"
+          >{{ option.viewValue }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="optionbox">
+      <mat-select>
+        <mat-option></mat-option>
+        <mat-option [value]="option.value" *ngFor="let option of subUnits"
+          >{{ option.viewValue }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
