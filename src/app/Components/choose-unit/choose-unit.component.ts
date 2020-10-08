@@ -10,8 +10,20 @@ interface Unit {
   styleUrls: ['./choose-unit.component.scss']
 })
 export class ChooseUnitComponent implements OnInit {
-  subUnits: Unit[];
+
+  subUnits: Unit[] = [
+    { value: 'feet', viewValue: 'feet' },
+    { value: 'inch', viewValue: 'inch' },
+    { value: 'meter', viewValue: 'meter' },
+    { value: 'centimeter', viewValue: 'centimeter' }
+  ];
+
+  selectedUnit: string = this.subUnits[0].viewValue;
+
   childMsg: string;
+  finalResult = 0;
+  inputType: unknown;
+  resultType: unknown;
   constructor() { }
 
   ngOnInit(): void {
@@ -24,8 +36,10 @@ export class ChooseUnitComponent implements OnInit {
         this.subUnits = [
           { value: 'feet', viewValue: 'feet' },
           { value: 'inch', viewValue: 'inch' },
-          { value: 'meter', viewValue: 'meter' }
+          { value: 'meter', viewValue: 'meter' },
+          { value: 'centimeter', viewValue: 'centimeter' }
         ];
+        this.selectedUnit = this.subUnits[0].viewValue
         break;
       }
       case 'volume': {
@@ -34,6 +48,7 @@ export class ChooseUnitComponent implements OnInit {
           { value: 'ml', viewValue: 'ml' },
           { value: 'gallon', viewValue: 'gallon' }
         ];
+        this.selectedUnit = this.subUnits[0].viewValue
         break;
       }
       case 'temp': {
@@ -41,6 +56,7 @@ export class ChooseUnitComponent implements OnInit {
           { value: 'celcius', viewValue: 'celcius' },
           { value: 'fahrenheight', viewValue: 'fahrenheight' }
         ];
+        this.selectedUnit = this.subUnits[0].viewValue
         break;
       }
 
@@ -50,7 +66,18 @@ export class ChooseUnitComponent implements OnInit {
           { value: 'ml', viewValue: 'ml' },
           { value: 'gallon', viewValue: 'gallon' }
         ];
+        this.selectedUnit = this.subUnits[0].viewValue
       }
+    }
+  }
+  conversion(value: number) {
+    this.inputType = <unknown>(document.getElementById("choiceOne"))
+    this.resultType = <unknown>(document.getElementById("choiceTwo"))
+    if (this.inputType == "centimeter" && this.resultType == "meter") {
+      this.finalResult = value / 100;
+    }
+    else {
+      this.finalResult = value * 10
     }
   }
 }

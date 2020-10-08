@@ -11,6 +11,9 @@ export class ChooseTypeComponent implements OnInit {
   lengthMsg = "length";
   tempMsg = "temp";
   volumeMsg = "volume";
+  choseLength = false
+  choseTemp = false
+  choseVolume = false
 
   constructor() { }
 
@@ -18,12 +21,21 @@ export class ChooseTypeComponent implements OnInit {
   }
 
   sendLength() {
+    this.choseTemp = false
+    this.choseVolume = false
+    this.choseLength = true
     this.msgEvent.emit(this.lengthMsg);
   }
   sendTemp() {
+    this.choseVolume = false
+    this.choseLength = false
+    this.choseTemp = true
     this.msgEvent.emit(this.tempMsg);
   }
   sendVolume() {
+    this.choseTemp = false
+    this.choseLength = false
+    this.choseVolume = true
     this.msgEvent.emit(this.volumeMsg)
   }
 

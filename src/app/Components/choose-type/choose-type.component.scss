@@ -21,25 +21,57 @@
   }
 }
 
-
-.temp:hover{
+.temp:hover {
   border: 1px solid red;
   background-color: rgb(243, 227, 227);
-  img{
+  img {
     content: url("../../../assets/images/hot.svg");
   }
-  .text{
+  .text {
     color: red;
   }
 }
 
-.volume:hover{
-  border:1px solid purple;
+.volume:hover {
+  border: 1px solid purple;
   background-color: rgb(226, 202, 226);
-  img{
+  img {
     content: url("../../../assets/images/beaker.svg");
   }
-  .text{
+  .text {
+    color: purple;
+  }
+}
+
+.selectedTemp {
+  border: 1px solid red;
+  background-color: rgb(243, 227, 227);
+  img {
+    content: url("../../../assets/images/hot.svg");
+  }
+  .text {
+    color: red;
+  }
+}
+
+.selectedLength {
+  border: 1px solid rgb(62, 240, 121);
+  background-color: rgb(247, 255, 249);
+  img {
+    content: url("../../../assets/images/scale.svg");
+  }
+  .text {
+    color: rgb(62, 240, 121);
+  }
+}
+
+.selectedVolume {
+  border: 1px solid purple;
+  background-color: rgb(226, 202, 226);
+  img {
+    content: url("../../../assets/images/beaker.svg");
+  }
+  .text {
     color: purple;
   }
 }

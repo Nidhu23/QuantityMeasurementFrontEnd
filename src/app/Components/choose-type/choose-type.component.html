@@ -13,6 +13,7 @@
         class="item length"
         fxLayout="column"
         fxLayoutAlign="center center"
+        [ngClass]="{'selectedLength': choseLength}"
         (click)="sendLength()"
       >
         <img src="../../../assets/images/scaleBlack.svg" alt="length" />
@@ -22,6 +23,7 @@
         class="item temp"
         fxLayout="column"
         fxLayoutAlign="center center"
+        [ngClass]="{'selectedTemp': choseTemp}"
         (click)="sendTemp()"
       >
         <img src="../../../assets/images/hotBlack.svg" alt="temp" />
@@ -31,6 +33,7 @@
         class="item volume"
         fxLayout="column"
         fxLayoutAlign="center center"
+        [ngClass]="{'selectedVolume': choseVolume}"
         (click)="sendVolume()"
       >
         <img src="../../../assets/images/beakerBlack.svg" />

@@ -12,7 +12,6 @@ import { from } from 'rxjs';
 import { ChooseTypeComponent } from './Components/choose-type/choose-type.component';
 import { ChooseUnitComponent } from './Components/choose-unit/choose-unit.component';
 import { MatSelectModule } from '@angular/material/select';
-import { SelectLengthComponent } from './Components/select-length/select-length.component';
 import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { HomeComponent } from './Components/home/home.component';
     HeaderComponent,
     ChooseTypeComponent,
     ChooseUnitComponent,
-    SelectLengthComponent,
     HomeComponent
   ],
   imports: [
