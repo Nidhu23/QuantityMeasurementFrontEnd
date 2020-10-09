@@ -10,26 +10,41 @@
   </div>
   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="52px">
     <div fxLayout="column" class="item">
-      <input type="text" id="input" (keyup)="conversion($event.target.value)" />
+      <input
+        type="text"
+        id="InputBoxOne"
+        (keyup)="calculate('InputBoxOne','InputBoxTwo',from,to)"
+      />
     </div>
     <div fxLayout="column" class="item">
-      <input type="text" id="result" [value]="finalResult" />
+      <input
+        type="text"
+        id="InputBoxTwo"
+        (keyup)="calculate('InputBoxTwo','InputBoxOne',to,from)"
+      />
     </div>
   </div>
   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="52px">
     <mat-form-field class="optionbox">
-      <mat-select [(value)]="selectedUnit" id="choiceOne">
+      <mat-select
+        [(value)]="selectedUnit"
+        [(ngModel)]="from"
+        (selectionChange)="calculate('InputBoxTwo','InputBoxOne',to,from)"
+      >
         <mat-option></mat-option>
-        <mat-option [value]="option.value" *ngFor="let option of subUnits"
-          >{{ option.viewValue }}</mat-option
+        <mat-option [value]="option" *ngFor="let option of subUnits"
+          >{{ option }}</mat-option
         >
       </mat-select>
     </mat-form-field>
     <mat-form-field class="optionbox">
-      <mat-select id="choiceTwo">
+      <mat-select
+        [(ngModel)]="to"
+        (selectionChange)="calculate('InputBoxTwo','InputBoxOne',to,from)"
+      >
         <mat-option></mat-option>
-        <mat-option [value]="option.value" *ngFor="let option of subUnits"
-          >{{ option.viewValue }}</mat-option
+        <mat-option [value]="option" *ngFor="let option of subUnits"
+          >{{ option }}</mat-option
         >
       </mat-select>
     </mat-form-field>
