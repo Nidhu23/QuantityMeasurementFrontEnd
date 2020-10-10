@@ -14,6 +14,7 @@ export class ChooseUnitComponent implements OnInit {
   propertyIndex;
   selectedUnit: string;
   childMsg: string;
+  tempIncrement;
   constructor() {
     this.properties[0] = 'length'
     this.units[0] = ['feet', 'inch', 'yard', 'cm', 'metre']
@@ -21,6 +22,10 @@ export class ChooseUnitComponent implements OnInit {
     this.properties[1] = 'volume'
     this.units[1] = ['litre', 'gallon', 'ml']
     this.factors[1] = [1.0, 3.78, 0.001]
+    this.properties[2] = "temp";
+    this.units[2] = ["celsius", "fahrenheit", "kelvin"];
+    this.factors[2] = [1, 0.555555555555, 1];
+    this.tempIncrement = [0, -32, -273.15];
   }
 
   ngOnInit(): void {
@@ -38,7 +43,7 @@ export class ChooseUnitComponent implements OnInit {
         break;
       }
       case 'temp': {
-        this.subUnits = this.units[0]
+        this.subUnits = this.units[2]
         break;
       }
 
@@ -67,8 +72,14 @@ export class ChooseUnitComponent implements OnInit {
     var input = (<HTMLInputElement>document.getElementById(InputId));
     var target = (<HTMLInputElement>document.getElementById(TargetId))
     result = parseFloat(input.value)
+    if (this.properties[this.propertyIndex] == "temp") {
+      result = parseFloat(result) + this.tempIncrement[sourceIndex];
+    }
     result = result * sourceFactor;
     result = result / targetFactor;
+    if (this.properties[this.propertyIndex] == "temp") {
+      result = parseFloat(result) - this.tempIncrement[targetIndex];
+    }
     target.value = String(result)
   }
 }
