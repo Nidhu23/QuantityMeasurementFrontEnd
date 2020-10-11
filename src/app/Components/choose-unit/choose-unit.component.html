@@ -13,7 +13,6 @@
       <input
         formControlName="fromValue"
         type="text"
-        id="InputBoxOne"
         (keyup)="calculate('fromValue','toValue',from,to)"
       />
     </div>
@@ -21,7 +20,6 @@
       <input
         formControlName="toValue"
         type="text"
-        id="InputBoxTwo"
         (keyup)="calculate('toValue','fromValue',to,from)"
       />
     </div>
@@ -29,7 +27,7 @@
   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="52px">
     <mat-form-field class="optionbox">
       <mat-select
-        [(value)]="selectedUnit"
+        [(value)]="from"
         [(ngModel)]="from"
         (selectionChange)="calculate('fromValue','toValue',from,to)"
       >
@@ -41,6 +39,7 @@
     </mat-form-field>
     <mat-form-field class="optionbox">
       <mat-select
+        [(value)]="to"
         [(ngModel)]="to"
         (selectionChange)="calculate('fromValue','toValue',from,to)"
       >

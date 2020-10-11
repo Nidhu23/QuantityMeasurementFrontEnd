@@ -18,6 +18,7 @@ export class ChooseTypeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.choseLength = true
   }
 
   sendLength() {

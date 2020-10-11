@@ -35,6 +35,8 @@ export class ChooseUnitComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.childMsg = "length"
+    this.getMsgFromChild(this.childMsg)
   }
 
   getMsgFromChild(cMsg: string) {
@@ -42,19 +44,27 @@ export class ChooseUnitComponent implements OnInit {
     switch (this.childMsg) {
       case 'length': {
         this.subUnits = this.units[0]
+        this.from = this.units[0][3]
+        this.to = this.units[0][4]
+        this.form.get("fromValue").setValue(1)
+        this.calculate("fromValue", "toValue", this.from, this.to)
         break;
       }
       case 'volume': {
         this.subUnits = this.units[1]
+        this.from = this.units[1][0]
+        this.to = this.units[1][2]
+        this.form.get("fromValue").setValue(1)
+        this.calculate("fromValue", "toValue", this.from, this.to)
         break;
       }
       case 'temp': {
         this.subUnits = this.units[2]
+        this.from = this.units[2][0]
+        this.to = this.units[2][1]
+        this.form.get("fromValue").setValue(1)
+        this.calculate("fromValue", "toValue", this.from, this.to)
         break;
-      }
-
-      default: {
-        this.subUnits = this.units[0]
       }
     }
   }
