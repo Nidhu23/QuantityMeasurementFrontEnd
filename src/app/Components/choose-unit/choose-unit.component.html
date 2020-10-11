@@ -32,7 +32,10 @@
         (selectionChange)="calculate('fromValue','toValue',from,to)"
       >
         <mat-option></mat-option>
-        <mat-option [value]="option" *ngFor="let option of subUnits"
+        <mat-option
+          [value]="option"
+          *ngFor="let option of subUnits"
+          [disabled]="to == option"
           >{{ option }}</mat-option
         >
       </mat-select>
@@ -44,7 +47,10 @@
         (selectionChange)="calculate('fromValue','toValue',from,to)"
       >
         <mat-option></mat-option>
-        <mat-option [value]="option" *ngFor="let option of subUnits"
+        <mat-option
+          [value]="option"
+          *ngFor="let option of subUnits"
+          [disabled]="from == option"
           >{{ option }}</mat-option
         >
       </mat-select>
