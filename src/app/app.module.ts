@@ -10,7 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card'
 import { from } from 'rxjs';
 import { ChooseTypeComponent } from './Components/choose-type/choose-type.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { ChooseUnitComponent } from './Components/choose-unit/choose-unit.component';
 import { MatSelectModule } from '@angular/material/select';
 import { HomeComponent } from './Components/home/home.component';
@@ -31,7 +31,8 @@ import { HomeComponent } from './Components/home/home.component';
     FlexLayoutModule,
     MatCardModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

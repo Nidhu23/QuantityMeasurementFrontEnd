@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormControlName } from '@angular/forms'
+import { from } from 'rxjs';
 @Component({
   selector: 'app-choose-unit',
   templateUrl: './choose-unit.component.html',
@@ -15,6 +17,10 @@ export class ChooseUnitComponent implements OnInit {
   selectedUnit: string;
   childMsg: string;
   tempIncrement;
+  form = new FormGroup({
+    fromValue: new FormControl(),
+    toValue: new FormControl()
+  })
   constructor() {
     this.properties[0] = 'length'
     this.units[0] = ['feet', 'inch', 'yard', 'cm', 'metre']
@@ -69,18 +75,15 @@ export class ChooseUnitComponent implements OnInit {
     }
     sourceFactor = this.factors[this.propertyIndex][sourceIndex];
     targetFactor = this.factors[this.propertyIndex][targetIndex];
-    var input = (<HTMLInputElement>document.getElementById(InputId));
-    var target = (<HTMLInputElement>document.getElementById(TargetId))
-    result = parseFloat(input.value)
+    let input = this.form.get(InputId).value;
     if (this.properties[this.propertyIndex] == "temp") {
       result = parseFloat(result) + this.tempIncrement[sourceIndex];
     }
-    result = result * sourceFactor;
-    result = result / targetFactor;
+    result = (input * sourceFactor) / targetFactor;
     if (this.properties[this.propertyIndex] == "temp") {
       result = parseFloat(result) - this.tempIncrement[targetIndex];
     }
-    target.value = String(result)
+    this.form.get(TargetId).setValue(result)
   }
 }
 
