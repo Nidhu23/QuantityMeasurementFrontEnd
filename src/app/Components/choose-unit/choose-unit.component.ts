@@ -23,11 +23,11 @@ export class ChooseUnitComponent implements OnInit {
   })
   constructor() {
     this.properties[0] = 'length'
-    this.units[0] = ['feet', 'inch', 'yard', 'cm', 'metre']
-    this.factors[0] = [12.0, 1.0, 36.0, 0.4, 40]
+    this.units[0] = ['feet', 'inch', 'yard', 'cm', 'metre', 'kilometer', 'micrometer', 'nanometer']
+    this.factors[0] = [12.0, 1.0, 36.0, 0.4, 40, 39370.1, 3.93701e-5, 3.93701e-8]
     this.properties[1] = 'volume'
-    this.units[1] = ['litre', 'gallon', 'ml']
-    this.factors[1] = [1.0, 3.78, 0.001]
+    this.units[1] = ['litre', 'gallon', 'ml', 'fluid ounce']
+    this.factors[1] = [1.0, 3.78, 0.001, 0.0284131]
     this.properties[2] = "temp";
     this.units[2] = ["celsius", "fahrenheit", "kelvin"];
     this.factors[2] = [1, 0.555555555555, 1];
@@ -74,15 +74,18 @@ export class ChooseUnitComponent implements OnInit {
     let targetIndex;
     let targetFactor;
     let result;
-    for (let i = 0; i < this.properties.length; i++) {
-      if (this.childMsg == this.properties[i]) this.propertyIndex = i;
-    }
-    for (let i = 0; i < this.units[this.propertyIndex].length; i++) {
-      if (from == this.units[this.propertyIndex][i]) sourceIndex = i;
-    }
-    for (let i = 0; i < this.units[this.propertyIndex].length; i++) {
-      if (to == this.units[this.propertyIndex][i]) targetIndex = i;
-    }
+
+    this.properties.forEach((element, index) => {
+      if (this.childMsg == element) this.propertyIndex = index
+    });
+
+    this.units[this.propertyIndex].forEach((element, index) => {
+      if (from == element) sourceIndex = index
+    });
+
+    this.units[this.propertyIndex].forEach((element, index) => {
+      if (to == element) targetIndex = index
+    });
     sourceFactor = this.factors[this.propertyIndex][sourceIndex];
     targetFactor = this.factors[this.propertyIndex][targetIndex];
     let input = this.form.get(InputId).value;
