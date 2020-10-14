@@ -6,12 +6,12 @@ import { HeaderComponent } from '../../src/app/Components/header/header.componen
 import { ChooseUnitComponent } from '../../src/app/Components/choose-unit/choose-unit.component'
 import { from } from 'rxjs';
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'prefix' },
   {
-    path: '', component: HomeComponent,
-    children: [{ path: 'header', component: HeaderComponent },
+    path: 'home', component: HomeComponent,
+    children: [{ path: '', component: HeaderComponent, outlet: 'header' },
     {
-      path: 'chooseUnit', component: ChooseUnitComponent,
-      children: [{ path: 'chooseType', component: ChooseTypeComponent }]
+      path: '', component: ChooseUnitComponent, outlet: 'chooseUnit'
     },
     ]
   },
